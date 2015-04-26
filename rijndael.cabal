@@ -1,7 +1,11 @@
 name:                rijndael
 version:             0.1.0.0
 synopsis:            Implementation of Rijndael (AES).
--- description:         
+description:         This is an implementation of Rijndael/AES with 128 bit
+                     keys only and only ECB mode.
+                     This package is not suitable for real cryptography and
+                     is only designed for use with the Matasano crypto
+                     challenge.
 license:             BSD3
 license-file:        LICENSE
 author:              Dylan Scott
@@ -16,7 +20,7 @@ library
   exposed-modules:     Rijndael
   -- other-modules:       
   -- other-extensions:    
-  build-depends:       base,
+  build-depends:       base <= 4.8.0.0,
                        bytestring,
                        containers
   hs-source-dirs:      src
@@ -27,7 +31,7 @@ test-suite rijndael-testsuite
   hs-source-dirs:      src,
                        test
   main-is:             Tests.hs
-  build-depends:       base,
+  build-depends:       base <= 4.8.0.0,
                        base16-bytestring,
                        bytestring,
                        containers,
