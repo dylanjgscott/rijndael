@@ -2,6 +2,8 @@ module Crypto.Cipher.Block.Rijndael where
 
 import qualified Data.ByteString as B
 
+import Crypto.Cipher
+import Crypto.Cipher.Block
 import Crypto.Cipher.Block.Rijndael.AddRoundKey
 import Crypto.Cipher.Block.Rijndael.KeyExpansion
 import Crypto.Cipher.Block.Rijndael.MixColumns
@@ -43,3 +45,14 @@ decrypt128 k pt = uninitialRound k $ foldl (flip unround) (unfinalRound finalKey
     initialKey = last $ expandedKeys
     roundKeys = init $ tail $ expandedKeys
     finalKey = head expandedKeys
+
+newtype Rijndael128 = Rijndael128 B.ByteString
+
+instance Cipher Rijndael128 where
+    cipherKeySize _ = 16
+    cipherInit k = Rijndael128 k
+
+instance BlockCipher Rijndael128 where
+    blockSize _ = 16
+    encrypt (Rijndael128 k) = encrypt128 k
+    decrypt (Rijndael128 k) = decrypt128 k

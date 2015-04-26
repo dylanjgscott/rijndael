@@ -18,7 +18,11 @@ cabal-version:       >=1.10
 
 library
   exposed-modules:     Crypto.Cipher.Block.Rijndael
-  -- other-modules:       
+  other-modules:       Crypto.Cipher.Block.Rijndael.Utils,
+                       Crypto.Cipher.Block.Rijndael.ShiftRows,
+                       Crypto.Cipher.Block.Rijndael.KeyExpansion,
+                       Crypto.Cipher.Block.Rijndael.AddRoundKey,
+                       Crypto.Cipher.Block.Rijndael.MixColumns
   -- other-extensions:    
   build-depends:       base <= 4.8.0.0,
                        bytestring,
@@ -36,6 +40,7 @@ test-suite rijndael-testsuite
                        base16-bytestring,
                        bytestring,
                        containers,
+                       crypto,
                        test-framework,
                        test-framework-hunit,
                        HUnit
