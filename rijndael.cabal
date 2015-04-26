@@ -1,0 +1,37 @@
+name:                rijndael
+version:             0.1.0.0
+synopsis:            Implementation of Rijndael (AES).
+-- description:         
+license:             BSD3
+license-file:        LICENSE
+author:              Dylan Scott
+maintainer:          dylan@dylanscott.com.au
+-- copyright:           
+category:            Crypto
+build-type:          Simple
+-- extra-source-files:  
+cabal-version:       >=1.10
+
+library
+  exposed-modules:     Rijndael
+  -- other-modules:       
+  -- other-extensions:    
+  build-depends:       base,
+                       bytestring,
+                       containers
+  hs-source-dirs:      src
+  default-language:    Haskell2010
+
+test-suite rijndael-testsuite
+  type:                exitcode-stdio-1.0
+  hs-source-dirs:      src,
+                       test
+  main-is:             Tests.hs
+  build-depends:       base,
+                       base16-bytestring,
+                       bytestring,
+                       containers,
+                       test-framework,
+                       test-framework-hunit,
+                       HUnit
+  default-language:    Haskell2010

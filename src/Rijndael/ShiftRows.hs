@@ -1,8 +1,6 @@
 module Rijndael.ShiftRows where
 
 import qualified Data.ByteString as B
-import qualified Data.ByteString.Char8 as C
-import qualified Data.ByteString.Base16 as B16
 
 import Rijndael.Utils
 
