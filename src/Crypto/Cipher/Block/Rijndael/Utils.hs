@@ -1,6 +1,6 @@
-module Rijndael.Utils where
+module Crypto.Cipher.Block.Rijndael.Utils where
 
-import Data.Bits
+import Data.Bits hiding (rotate)
 import qualified Data.ByteString as B
 import qualified Data.Map as Map
 import Data.Maybe
@@ -8,8 +8,8 @@ import Data.Word
 
 rotate :: Int -> B.ByteString -> B.ByteString
 rotate 0 x = x
-rotate n x | n > 0 = Rijndael.Utils.rotate (n-1) $ B.snoc (B.tail x) (B.head x)
-           | n < 0 = Rijndael.Utils.rotate (n+1) $ B.cons (B.last x) (B.init x)
+rotate n x | n > 0 = rotate (n-1) $ B.snoc (B.tail x) (B.head x)
+           | n < 0 = rotate (n+1) $ B.cons (B.last x) (B.init x)
 
 rfAdd :: Word8 -> Word8 -> Word8
 rfAdd = xor

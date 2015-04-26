@@ -1,8 +1,8 @@
-module Rijndael.SubBytes where
+module Crypto.Cipher.Block.Rijndael.SubBytes where
 
 import qualified Data.ByteString as B
 
-import Rijndael.Utils
+import Crypto.Cipher.Block.Rijndael.Utils
 
 subBytes :: B.ByteString -> B.ByteString
 subBytes = B.map sbox

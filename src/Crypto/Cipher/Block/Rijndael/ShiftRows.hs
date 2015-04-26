@@ -1,8 +1,8 @@
-module Rijndael.ShiftRows where
+module Crypto.Cipher.Block.Rijndael.ShiftRows where
 
 import qualified Data.ByteString as B
 
-import Rijndael.Utils
+import Crypto.Cipher.Block.Rijndael.Utils
 
 shiftRows :: B.ByteString -> B.ByteString
 shiftRows x = B.concat $ B.transpose $ map (uncurry rotate) $ zip [0..] $ B.transpose $ chop 4 x

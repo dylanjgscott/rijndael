@@ -1,9 +1,9 @@
-module Rijndael.MixColumns where
+module Crypto.Cipher.Block.Rijndael.MixColumns where
 
 import qualified Data.ByteString as B
 import Data.Word
 
-import Rijndael.Utils
+import Crypto.Cipher.Block.Rijndael.Utils
 
 matrixMul :: B.ByteString -> B.ByteString -> Word8
 matrixMul x y = foldl1 rfAdd $ B.zipWith rfMul x y

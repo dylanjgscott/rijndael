@@ -1,4 +1,4 @@
-module Rijndael.AddRoundKey where
+module Crypto.Cipher.Block.Rijndael.AddRoundKey where
 
 import Data.Bits
 import qualified Data.ByteString as B
